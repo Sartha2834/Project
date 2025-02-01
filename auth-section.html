@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Signup</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url("E:\image 1.jpg");
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+  background-color: rgba(0, 0, 0, 0.5); 
+  padding: 40px;
+  width: 300px;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+} 
+    
+    h2 {
+      text-align: center;
+      color: #f5f0f0;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+    input {
+      width: 95%;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .form-group input[type="submit"] {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .form-group input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+    .toggle-links {
+      text-align: center;
+    }
+    .toggle-links a {
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Login Form -->
+  <div id="login-form">
+    <h2>Login To OCG</h2>
+    <form action="/login" method="post">
+      <div class="form-group">
+        <label for="login-email">Email:</label>
+        <input type="email" id="login-email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="login-password">Password:</label>
+        <input type="password" id="login-password" name="password" required>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Login">
+      </div>
+      <div class="toggle-links">
+        <p>Don't have an account? <a href="#" onclick="showSignup()">Sign up</a></p>
+      </div>
+    </form>
+  </div>
+
+  <!-- Signup Form (Initially hidden) -->
+  <div id="signup-form" style="display: none;">
+    <h2>Sign Up To OCG</h2>
+    <form action="/signup" method="post">
+      <div class="form-group">
+        <label for="signup-name">Full Name:</label>
+        <input type="text" id="signup-name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="signup-email">Email:</label>
+        <input type="email" id="signup-email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="signup-password">Password:</label>
+        <input type="password" id="signup-password" name="password" required>
+      </div>
+      <div class="form-group">
+        <label for="signup-confirm-password">Confirm Password:</label>
+        <input type="password" id="signup-confirm-password" name="confirm-password" required>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Sign Up">
+      </div>
+      <div class="toggle-links">
+        <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  function showSignup() {
+    document.getElementById('login-form').style.display = 'none';
+    document.getElementById('signup-form').style.display = 'block';
+  }
+
+  function showLogin() {
+    document.getElementById('signup-form').style.display = 'none';
+    document.getElementById('login-form').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
